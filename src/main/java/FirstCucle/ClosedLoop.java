@@ -1,11 +1,11 @@
 package FirstCucle;
 
 public class ClosedLoop {
-    private Double balloonVolume;
-    private Double initialPressure;
+    private double balloonVolume;
+    private double initialPressure;
     private int difficulty;
 
-    public ClosedLoop(Double balloonVolume, Double initialPressure, int difficulty) {
+    public ClosedLoop(double balloonVolume, double initialPressure, int difficulty) {
         this.balloonVolume=balloonVolume;
         this.initialPressure=initialPressure;
         this.difficulty=difficulty;
