@@ -31,10 +31,10 @@ public class Main {
                     System.out.println("выберите объем баолна");//от 5 до 10 литров
                     int value = in.nextInt();
                     System.out.println("укажите содержание кислорода");//от 40% до 60%
-                    int persent = in.nextInt();
+                    int percent = in.nextInt();
                     System.out.println("укажите давление в балоне");//200;250;300
-                    int preasure = in.nextInt();
-                    semiClosedLoop.printGlybinaAndTime(value, persent, preasure);
+                    int pressure = in.nextInt();
+                    semiClosedLoop.printDepthAndTime(value, percent, pressure);
                     System.out.println("тут могла быть ваша реклама");
                 }
                 default -> {
