@@ -19,9 +19,9 @@ public class Main {
                 case 1 -> {
                     int difficulty = selectDifficulty();
                     System.out.println("введите объем балона");//1 или 2 литра
-                    int balloonVolume = 2;
+                    int balloonVolume = in.nextInt();
                     System.out.println("укажите давление в балоне");//200;250;300
-                    int initialPressure = 200;
+                    int initialPressure = in.nextInt();
                     ClosedLoop closedLoop = new ClosedLoop();
                     closedLoop.printTime(balloonVolume, initialPressure, difficulty);
                     System.out.println("тут могла быть ваша реклама");
