@@ -1,45 +1,31 @@
 package FirstCucle;
 
+import static Difficulty.DifficultyConstant.*;
+
 public class ClosedLoop {
-    private double balloonVolume;
-    private double initialPressure;
-    private int difficulty;
 
-    public ClosedLoop(double balloonVolume, double initialPressure, int difficulty) {
-        this.balloonVolume=balloonVolume;
-        this.initialPressure=initialPressure;
-        this.difficulty=difficulty;
+    public void printTime(int balloonVolume, int pressure, int difficulty){
+        double timeInMinute = pressure*balloonVolume*0.7;
+        if (difficulty==EASY){
+            timeInMinute=timeInMinute/1;
+            int a = (int) timeInMinute/30;
+            a=a*8;
+            timeInMinute-=a;
+            System.out.println("Минуты: "+timeInMinute+" Часы: "+ timeInMinute/60);
+        }
+        if (difficulty==NORMAL){
+            timeInMinute=timeInMinute/1.5;
+            int a = (int) timeInMinute/20;
+            a=a*8;
+            timeInMinute-=a;
+            System.out.println("Минуты: "+timeInMinute+" Часы: "+ timeInMinute/60);
+        }
+        if (difficulty==HARD){
+            timeInMinute=timeInMinute/2;
+            int a = (int) timeInMinute/10;
+            a=a*8;
+            timeInMinute-=a;
+            System.out.println("Минуты: "+timeInMinute+" Часы: "+ timeInMinute/60);
+        }
     }
-
-    public Double getBalloonVolume() {
-        return balloonVolume;
-    }
-
-    public Double getInitialPressure() {
-        return initialPressure;
-    }
-
-    public int getDifficulty() {
-        return difficulty;
-    }
-
-    public void setBalloonVolume(Double balloonVolume) {
-        this.balloonVolume = balloonVolume;
-    }
-
-    public void setInitialPressure(Double initialPressure) {
-        this.initialPressure = initialPressure;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
 }
