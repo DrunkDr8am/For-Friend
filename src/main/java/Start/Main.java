@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
         boolean exit = true;
         do {
@@ -36,9 +37,9 @@ public class Main {
                     int pressure = checkPressure();
                     semiClosedLoop.printDepthAndTime(value, percent, pressure);
                     System.out.println("тут могла быть ваша реклама");
-                    double time=93.333333;
-                    double depth=30;
-                    semiClosedLoop.printValuePercentPressure(depth,time);
+                    double time = 93.333333;
+                    double depth = 30;
+                    semiClosedLoop.printValuePercentPressure(depth, time);
                 }
                 default -> {
                     System.out.println("Плыви Рыбка");
@@ -55,6 +56,7 @@ public class Main {
         System.out.println("3 - сложно");
         return check123();
     }
+
     public static int check123() {
         while (true) {
             String volume = in.nextLine();
@@ -63,70 +65,68 @@ public class Main {
                 if (number >= 1 && number <= 3)
                     return number;
             }
-            System.out.println("Вы ввели неправильное значение");
+            System.out.println("Рыбка, ты совсем дурак?");
         }
     }
 
-    public static int checkVolumeInClosedLoop(){
-        while(true){
+    public static int checkVolumeInClosedLoop() {
+        while (true) {
             String volume = in.nextLine();
-            if(checkInt(volume)) {
+            if (checkInt(volume)) {
                 int number = Integer.parseInt(volume);
-                if (number>= 1 && number <= 2)
+                if (number >= 1 && number <= 2)
                     return number;
             }
-            System.out.println("Вы ввели неправильное значение");
+            System.out.println("Рыбка, ты совсем дурак?");
         }
     }
 
-    public static int checkPercent(){
-        while(true){
+    public static int checkPercent() {
+        while (true) {
             String volume = in.nextLine();
-            if(checkInt(volume)) {
+            if (checkInt(volume)) {
                 int number = Integer.parseInt(volume);
-                if (number>= 40 && number <= 60)
+                if (number >= 40 && number <= 60)
                     return number;
             }
-            System.out.println("Вы ввели неправильное значение");
+            System.out.println("Рыбка, ты совсем дурак?");
         }
     }
 
-    public static int checkVolumeInSemiClosedLoop(){
-        while(true){
+    public static int checkVolumeInSemiClosedLoop() {
+        while (true) {
             String volume = in.nextLine();
-            if(checkInt(volume)) {
+            if (checkInt(volume)) {
                 int number = Integer.parseInt(volume);
-                if (number>= 5 && number <= 10)
+                if (number >= 5 && number <= 10)
                     return number;
             }
-            System.out.println("Вы ввели неправильное значение");
+            System.out.println("Рыбка, ты совсем дурак?");
         }
     }
 
-    public static int checkPressure(){
-        while(true){
+    public static int checkPressure() {
+        while (true) {
             String volume = in.nextLine();
-            if(checkInt(volume)) {
+            if (checkInt(volume)) {
                 int number = Integer.parseInt(volume);
-                if (number>= 200 && number <= 300)
+                if (number >= 200 && number <= 300)
                     return number;
             }
-            System.out.println("Вы ввели неправильное значение");
+            System.out.println("Рыбка, ты совсем дурак?");
         }
     }
 
-    public static boolean checkInt(String string){
-        boolean flag=true;
-        if (string.length()>0){
-            for(int i=0;i<string.length();i++){
-                if(string.charAt(i)>=48&&string.charAt(i)<=57){
-                }else flag=false;
-
+    public static boolean checkInt(String string) {
+        boolean flag = true;
+        if (string.length() > 0) {
+            for (int i = 0; i < string.length(); i++) {
+                if (string.charAt(i) >= 48 && string.charAt(i) <= 57) {
+                } else flag = false;
             }
             if (flag) {
                 return true;
             }
-
         }
         return false;
     }

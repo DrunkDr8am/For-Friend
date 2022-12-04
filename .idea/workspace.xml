@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="96dde427-c43d-4f0d-85b2-974ff020ed13" name="Changes" comment="Пока Рыбка">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FirstCucle/ClosedLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FirstCucle/ClosedLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SeconCucle/SemiClosedLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeconCucle/SemiClosedLoop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Start/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Start/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669573504673</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Пока Рыбка">
+      <created>1670166740983</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670166740983</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,16 +134,5 @@
     <MESSAGE value="Hi Nekit!" />
     <MESSAGE value="Пока Рыбка" />
     <option name="LAST_COMMIT_MESSAGE" value="Пока Рыбка" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Start/Main.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
