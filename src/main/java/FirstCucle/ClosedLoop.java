@@ -7,7 +7,6 @@ public class ClosedLoop {
     public void printTime(int balloonVolume, int pressure, int difficulty){
         double timeInMinute = pressure*balloonVolume*0.7;
         if (difficulty==EASY){
-            timeInMinute=timeInMinute/1;
             int a = (int) timeInMinute/30;
             a=a*8;
             timeInMinute-=a;
