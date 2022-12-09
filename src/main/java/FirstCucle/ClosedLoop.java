@@ -27,4 +27,5 @@ public class ClosedLoop {
             System.out.println("Минуты: "+timeInMinute+" Часы: "+ timeInMinute/60);
         }
     }
+
 }
