@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96dde427-c43d-4f0d-85b2-974ff020ed13" name="Changes" comment="Пока Рыбка">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Start/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Start/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="96dde427-c43d-4f0d-85b2-974ff020ed13" name="Changes" comment="1) создал 3 case&#10;2)подправил корректность ввода для обратной функции&#10;3) добавил еще один забавный вывод рыбки в обратном полузамкнутом цикле, но не уверен что в него можно будет попасть при вводимых значениях" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +112,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670166740983</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Рыбка, ты куда поехал?">
+      <created>1670166982222</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670166982222</updated>
+    </task>
+    <task id="LOCAL-00008" summary="1) создал 3 case&#10;2)подправил корректность ввода для обратной функции&#10;3) добавил еще один забавный вывод рыбки в обратном полузамкнутом цикле, но не уверен что в него можно будет попасть при вводимых значениях">
+      <created>1670580275114</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670580275114</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,6 +144,19 @@
     <MESSAGE value="hi Nekit" />
     <MESSAGE value="Hi Nekit!" />
     <MESSAGE value="Пока Рыбка" />
-    <option name="LAST_COMMIT_MESSAGE" value="Пока Рыбка" />
+    <MESSAGE value="Рыбка, ты куда поехал?" />
+    <MESSAGE value="1) создал 3 case&#10;2)подправил корректность ввода для обратной функции&#10;3) добавил еще один забавный вывод рыбки в обратном полузамкнутом цикле, но не уверен что в него можно будет попасть при вводимых значениях" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) создал 3 case&#10;2)подправил корректность ввода для обратной функции&#10;3) добавил еще один забавный вывод рыбки в обратном полузамкнутом цикле, но не уверен что в него можно будет попасть при вводимых значениях" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/SeconCucle/SemiClosedLoop.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -14,31 +14,37 @@ public class Main {
             System.out.println("Выберите тип поогружения");
             System.out.println("1 - замкнутый цикл");
             System.out.println("2 - полузамкнутый цикл");
-            System.out.println("3 - выход");
-            int type = check123();
+            System.out.println("3 - обратная функция для полузамкнутого цикла");
+            System.out.println("4 - выход");
+            int type = checkCorrectNumber(1,4);
             switch (type) {
                 case 1 -> {
                     int difficulty = selectDifficulty();
                     System.out.println("введите объем балона(1 или 2 литра)");//1 или 2 литра
-                    int balloonVolume = checkVolumeInClosedLoop();
+                    int balloonVolume = checkCorrectNumber(1,2);
                     System.out.println("укажите давление в балоне(от 200 до 300 паскалей)");//200;250;300
-                    int initialPressure = checkPressure();
+                    int initialPressure = checkCorrectNumber(200,300);
                     ClosedLoop closedLoop = new ClosedLoop();
                     closedLoop.printTime(balloonVolume, initialPressure, difficulty);
                     System.out.println("тут могла быть ваша реклама");
                 }
                 case 2 -> {
                     SemiClosedLoop semiClosedLoop = new SemiClosedLoop();
-                    System.out.println("выберите объем баолна");//от 5 до 10 литров
-                    int value = checkVolumeInSemiClosedLoop();
-                    System.out.println("укажите содержание кислорода");//от 40% до 60%
-                    int percent = checkPercent();
-                    System.out.println("укажите давление в балоне");//200;250;300
-                    int pressure = checkPressure();
+                    System.out.println("выберите объем баолна (от 5 до 10 литров)");//от 5 до 10 литров
+                    int value = checkCorrectNumber(5,10);
+                    System.out.println("укажите содержание кислорода(от 40 до 60 процентов)");//от 40% до 60%
+                    int percent = checkCorrectNumber(40,60);
+                    System.out.println("укажите давление в балоне (от 200 до 300 паскалей)");//200;250;300
+                    int pressure = checkCorrectNumber(200,300);
                     semiClosedLoop.printDepthAndTime(value, percent, pressure);
                     System.out.println("тут могла быть ваша реклама");
-                    double time = 93.333333;
-                    double depth = 30;
+                }
+                case 3 ->{
+                    SemiClosedLoop semiClosedLoop = new SemiClosedLoop();
+                    System.out.println("укажите длительность погружения в минутах (от 30 до 420) ");
+                    int time = checkCorrectNumber(30,420);
+                    System.out.println("укажите глубину погружения в метрах (от 2 до 50)");
+                    int depth = checkCorrectNumber(2,50);
                     semiClosedLoop.printValuePercentPressure(depth, time);
                 }
                 default -> {
@@ -54,66 +60,19 @@ public class Main {
         System.out.println("1 - легко");
         System.out.println("2 - нормально");
         System.out.println("3 - сложно");
-        return check123();
+        return checkCorrectNumber(1,3);
     }
 
-    public static int check123() {
+    public static int checkCorrectNumber(int min, int max) {
         while (true) {
             String volume = in.nextLine();
             if (checkInt(volume)) {
                 int number = Integer.parseInt(volume);
-                if (number >= 1 && number <= 3)
+                if (number >= min && number <= max)
                     return number;
             }
             System.out.println("Рыбка, ты совсем дурак?");
-        }
-    }
-
-    public static int checkVolumeInClosedLoop() {
-        while (true) {
-            String volume = in.nextLine();
-            if (checkInt(volume)) {
-                int number = Integer.parseInt(volume);
-                if (number >= 1 && number <= 2)
-                    return number;
-            }
-            System.out.println("Рыбка, ты совсем дурак?");
-        }
-    }
-
-    public static int checkPercent() {
-        while (true) {
-            String volume = in.nextLine();
-            if (checkInt(volume)) {
-                int number = Integer.parseInt(volume);
-                if (number >= 40 && number <= 60)
-                    return number;
-            }
-            System.out.println("Рыбка, ты совсем дурак?");
-        }
-    }
-
-    public static int checkVolumeInSemiClosedLoop() {
-        while (true) {
-            String volume = in.nextLine();
-            if (checkInt(volume)) {
-                int number = Integer.parseInt(volume);
-                if (number >= 5 && number <= 10)
-                    return number;
-            }
-            System.out.println("Рыбка, ты совсем дурак?");
-        }
-    }
-
-    public static int checkPressure() {
-        while (true) {
-            String volume = in.nextLine();
-            if (checkInt(volume)) {
-                int number = Integer.parseInt(volume);
-                if (number >= 200 && number <= 300)
-                    return number;
-            }
-            System.out.println("Рыбка, ты совсем дурак?");
+            System.out.println("Введите число в деапазоне от "+min+" до "+max);
         }
     }
 
