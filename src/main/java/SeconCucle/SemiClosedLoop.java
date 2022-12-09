@@ -43,5 +43,4 @@ public class SemiClosedLoop {
             System.out.println("нету подходящего оборудования для рыбок");
         }
     }
-
 }
