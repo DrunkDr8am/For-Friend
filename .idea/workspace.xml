@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96dde427-c43d-4f0d-85b2-974ff020ed13" name="Changes" comment="1) создал 3 case&#10;2)подправил корректность ввода для обратной функции&#10;3) добавил еще один забавный вывод рыбки в обратном полузамкнутом цикле, но не уверен что в него можно будет попасть при вводимых значениях">
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Table/For_friend.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SeconCucle/SemiClosedLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeconCucle/SemiClosedLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Start/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Start/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,13 +43,33 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.0",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Z.U.L/IdeaProjects/For-Friend/src/main/java/Table",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "File.Encoding"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Z.U.L\IdeaProjects\For-Friend\src\main\java\Table" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="ExcelToArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Start.ExcelToArray" />
+      <module name="ForFriend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Start.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Start.Main" />
       <module name="ForFriend" />
@@ -60,6 +86,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ExcelToArray" />
       </list>
     </recent_temporary>
   </component>
@@ -170,16 +197,5 @@
     <MESSAGE value="Рыбка, ты куда поехал?" />
     <MESSAGE value="1) создал 3 case&#10;2)подправил корректность ввода для обратной функции&#10;3) добавил еще один забавный вывод рыбки в обратном полузамкнутом цикле, но не уверен что в него можно будет попасть при вводимых значениях" />
     <option name="LAST_COMMIT_MESSAGE" value="1) создал 3 case&#10;2)подправил корректность ввода для обратной функции&#10;3) добавил еще один забавный вывод рыбки в обратном полузамкнутом цикле, но не уверен что в него можно будет попасть при вводимых значениях" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SeconCucle/SemiClosedLoop.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -1,7 +1,7 @@
 package SeconCucle;
 
 public class SemiClosedLoop {
-    public void printDepthAndTime(int value, int fullPercent, int pressure) {
+    public double[] printDepthAndTime(int value, int fullPercent, int pressure) {
         double percent = (double) fullPercent / 100;
         double timeInMinute = pressure * value * 0.7;
         timeInMinute = timeInMinute / (3 / percent);
@@ -9,10 +9,10 @@ public class SemiClosedLoop {
         double depthSport = 1.6 / percent * 10 - 10;
         double depthNATO = 2.4 / percent * 10 - 10;
         double depthRF = 3.2 / percent * 10 - 10;
-        System.out.printf("Глубина погружения для рыбок: %.2f\n", depthSport);
+        System.out.printf("Глубина погружения для рыбок: %.2f\n я беру эту глубину", depthSport);
         System.out.printf("Глубина погружения для морских котиков: %.2f\n" , depthNATO);
         System.out.printf("Глубина погружения для моржей: %.2f\n" , depthRF);
-
+        return new double[]{timeInMinute,depthSport};
     }
 
     public void printValuePercentPressure(int depth,int timeInMinute){
