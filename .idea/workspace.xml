@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96dde427-c43d-4f0d-85b2-974ff020ed13" name="Changes" comment="1) создал 3 case&#10;2)подправил корректность ввода для обратной функции&#10;3) добавил еще один забавный вывод рыбки в обратном полузамкнутом цикле, но не уверен что в него можно будет попасть при вводимых значениях">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Table/For_friend.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="96dde427-c43d-4f0d-85b2-974ff020ed13" name="Changes" comment="обновил под новую НИР">
       <change beforePath="$PROJECT_DIR$/src/main/java/SeconCucle/SemiClosedLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeconCucle/SemiClosedLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Start/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Start/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670580988796</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="обновил под новую НИР">
+      <created>1683728278872</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683728278872</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +197,7 @@
     <MESSAGE value="Пока Рыбка" />
     <MESSAGE value="Рыбка, ты куда поехал?" />
     <MESSAGE value="1) создал 3 case&#10;2)подправил корректность ввода для обратной функции&#10;3) добавил еще один забавный вывод рыбки в обратном полузамкнутом цикле, но не уверен что в него можно будет попасть при вводимых значениях" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) создал 3 case&#10;2)подправил корректность ввода для обратной функции&#10;3) добавил еще один забавный вывод рыбки в обратном полузамкнутом цикле, но не уверен что в него можно будет попасть при вводимых значениях" />
+    <MESSAGE value="обновил под новую НИР" />
+    <option name="LAST_COMMIT_MESSAGE" value="обновил под новую НИР" />
   </component>
 </project>
