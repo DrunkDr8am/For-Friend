@@ -5,14 +5,17 @@ public class SemiClosedLoop {
         double percent = (double) fullPercent / 100;
         double timeInMinute = pressure * value * 0.7;
         timeInMinute = timeInMinute / (3 / percent);
-        System.out.printf("Минуты: %.2f  Часы: %.2f\n" ,timeInMinute, timeInMinute / 60);
+        System.out.printf("Расчетное время в минутах: %.2f  В часах: %.2f\n" ,timeInMinute, timeInMinute / 60);
         double depthSport = 1.6 / percent * 10 - 10;
         double depthNATO = 2.4 / percent * 10 - 10;
         double depthRF = 3.2 / percent * 10 - 10;
-        System.out.printf("Глубина погружения для рыбок: %.2f я беру эту глубину\n", depthSport);
-        System.out.printf("Глубина погружения для морских котиков: %.2f\n" , depthNATO);
-        System.out.printf("Глубина погружения для моржей: %.2f\n" , depthRF);
-        return new double[]{timeInMinute,depthSport};
+        double depthForDecom = 2 / percent * 10 - 10;
+        System.out.printf("Глубина погружения для парциального давления 1.6: %.2f" + " м.\n", depthSport);
+        System.out.printf("Глубина погружения для парциального давления 2: %.2f" + " м.\n", depthForDecom);
+        System.out.printf("Глубина погружения для парциального давления 2.4: %.2f" + " м.\n", depthNATO);
+        System.out.printf("Глубина погружения для парциального давления 3.2: %.2f" + " м.\n", depthRF);
+        System.out.println();
+        return new double[]{timeInMinute,depthForDecom};
     }
 
     public void printValuePercentPressure(int depth,int timeInMinute){
@@ -35,12 +38,12 @@ public class SemiClosedLoop {
             value=i;
             pressure=valuePressure/value;
             if(pressure>170&&pressure<330) {
-                System.out.printf("Для балона в: %.2f литров будет давление в: %.2f паскаль\n", value, pressure);
+                System.out.printf("Для %.2f литровой ДГС нужно давление %.2f паскаль\n", value, pressure);
                 flag = true;
             }
         }
         if (!flag){
-            System.out.println("нету подходящего оборудования для рыбок");
+            System.out.println("Нет подходящего состава смеси.");
         }
     }
 
