@@ -10,24 +10,24 @@ public class ClosedLoop {
             int a = (int) timeInMinute/30;
             a=a*8;
             timeInMinute-=a;
-            System.out.printf("Минуты: %.2f\n", timeInMinute);
-            System.out.printf("Часы: %.2f ",timeInMinute/60);
+            System.out.printf("Расчетное время в минутах: %.2f\n", timeInMinute);
+            System.out.printf("В часах: %.2f ",timeInMinute/60);
         }
         if (difficulty==NORMAL){
             timeInMinute=timeInMinute/1.5;
             int a = (int) timeInMinute/20;
             a=a*8;
             timeInMinute-=a;
-            System.out.printf("Минуты: %.2f\n", timeInMinute);
-            System.out.printf("Часы: %.2f ",timeInMinute/60);
+            System.out.printf("Расчетное время в минутах: %.2f\n", timeInMinute);
+            System.out.printf("В часах: %.2f ",timeInMinute/60);
         }
         if (difficulty==HARD){
             timeInMinute=timeInMinute/2;
             int a = (int) timeInMinute/10;
             a=a*8;
             timeInMinute-=a;
-            System.out.printf("Минуты: %.2f\n", timeInMinute);
-            System.out.printf("Часы: %.2f ",timeInMinute/60);
+            System.out.printf("Расчетное время в минутах: %.2f\n", timeInMinute);
+            System.out.printf("В часах: %.2f ",timeInMinute/60);
         }
     }
 
