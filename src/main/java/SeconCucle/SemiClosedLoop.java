@@ -15,7 +15,14 @@ public class SemiClosedLoop {
         return new double[]{timeInMinute,depthSport};
     }
 
-    public void printValuePercentPressure(int depth,int timeInMinute){
+    public double[] valueFullPercentPressure(int depth, int workTime, double parsPressure) {
+
+
+    return new double[]{1,2,3};
+        //return new double[]{value,fullPercent,pressure};
+    }
+
+    public double[]printValuePercentPressure(int depth,int timeInMinute){
         boolean flag = false;
         double coefficient;
         if (depth<17) {
@@ -27,10 +34,13 @@ public class SemiClosedLoop {
             coefficient=3.2;
         }
         double percent = (coefficient*10)/(depth+10);
+        if (percent<40){
+            return new double[]{-1, -1, -1};
+        }
         System.out.printf("Процент содержания кислорода: %.2f\n" , percent*100);
         double valuePressure = (timeInMinute*3)/(percent*0.7);
-        double value;
-        double pressure;
+        double value=0;
+        double pressure=0;
         for (int i=5;i<=10;i++){
             value=i;
             pressure=valuePressure/value;
@@ -41,7 +51,10 @@ public class SemiClosedLoop {
         }
         if (!flag){
             System.out.println("нету подходящего оборудования для рыбок");
+            value=-1;
+            pressure=-1;
         }
+        return new double[]{value, percent, pressure };
     }
 
 }

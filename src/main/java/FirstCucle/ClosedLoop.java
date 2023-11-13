@@ -31,4 +31,33 @@ public class ClosedLoop {
         }
     }
 
+    public void printVolumePlusPressure(int time, int difficulty){
+        double doubleTime=0;
+        boolean flag;
+        if (difficulty==EASY){
+            int a = time/20;
+            a=a*8;
+            time+=a;
+            doubleTime=time*1.5;
+        }
+        if (difficulty==NORMAL){
+            int a = time/20;
+            a=a*8;
+            time+=a;
+            doubleTime=time*2;
+        }
+        //doubleTime = pressure*balloonVolume*0.7;
+        //blon(1/2)
+        //pressure(200-300)
+
+        for (int balloonVolume=0; balloonVolume<2; balloonVolume++){
+            flag = false;
+            for (int pressure=200; pressure<300; pressure++){
+                if (doubleTime<=pressure*balloonVolume*0.7 && !flag){
+                    flag=true;
+                    System.out.println("нужен балон объемом: "+balloonVolume+" и с давлением не меньше: "+pressure);
+                }
+            }
+        }
+    }
 }
