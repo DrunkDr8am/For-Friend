@@ -19,7 +19,7 @@ import static Difficulty.DifficultyConstant.*;
 
 public class Main {
     static Scanner in = new Scanner(System.in);
-    static String table = "C:\\Users\\Никита\\Desktop\\НИР\\2023\\Table.xlsx";
+    static String table = "src/main/java/Table/For_friend.xlsx";
 
     public static void main(String[] args) throws IOException {
         boolean exit = true;
@@ -109,42 +109,48 @@ public class Main {
                     double[] ValuePercentPressure = semiClosedLoop.printValuePercentPressure(depth, time);
                     System.out.println(ValuePercentPressure[0]+" "+ValuePercentPressure[1]+" "+ValuePercentPressure[2]);
 
-                    // Загрузить файл Excel
-                    data = convertToMatrix(table);
-                    int vodorod = (int) (100 - ValuePercentPressure[1]);
-                    double normalDepth = 0;
-                    for (Object[] datum : data) {
-                        if (((depth - (Double) datum[0] < 3) && (depth - (Double) datum[0] >= 0))) {
-                            normalDepth = (Double) datum[0];
-                        }
-                        if (((depth * vodorod / 80 - (Double) datum[0] < 3) && (depth * vodorod / 80 - (Double) datum[0] >= 0))) {
-                            if ((Double) datum[1] + (Double) datum[2] < time) {
-                                if (flag) {
-                                    maxDecom = new double[]{(Double) datum[0], (Double) datum[1], (Double) datum[2]};
-                                    flag = false;
-                                } else if ((Double) datum[1] + (Double) datum[2] > maxDecom[1] + maxDecom[2]) {
-                                    maxDecom = new double[]{(Double) datum[0], (Double) datum[1], (Double) datum[2]};
+                    if (!Arrays.equals(ValuePercentPressure, new double[]{-1, -1, -1})) {
+                        // Загрузить файл Excel
+                        data = convertToMatrix(table);
+                        int vodorod = (int) (100 - ValuePercentPressure[1]);
+                        double normalDepth = 0;
+                        for (Object[] datum : data) {
+                            if (((depth - (Double) datum[0] < 3) && (depth - (Double) datum[0] >= 0))) {
+                                normalDepth = (Double) datum[0];
+                            }
+                            if (((depth * vodorod / 80 - (Double) datum[0] < 3) && (depth * vodorod / 80 - (Double) datum[0] >= 0))) {
+                                if ((Double) datum[1] + (Double) datum[2] < time) {
+                                    if (flag) {
+                                        maxDecom = new double[]{(Double) datum[0], (Double) datum[1], (Double) datum[2]};
+                                        flag = false;
+                                    } else if ((Double) datum[1] + (Double) datum[2] > maxDecom[1] + maxDecom[2]) {
+                                        maxDecom = new double[]{(Double) datum[0], (Double) datum[1], (Double) datum[2]};
+                                    }
                                 }
                             }
                         }
-                    }
-                    System.out.println("Учитывая декомпрессионные обязательсва: ");
-                    if (maxDecom[0] == 0) {
-                        System.out.println("Для заданной системы декомпрессионные обязательсва не нужны.");
-                    } else {
-                        System.out.print("Глубина спуска: " + normalDepth + " м., " + "эквивалент глубины: " + maxDecom[0] + " м.(воздух).\n" + "Экспозиция на грунте: " +
-                                maxDecom[1] + " мин.\n" + "Общее время декомпрессии: " + maxDecom[2] + " мин.\n");
-                    }
+                        System.out.println("Учитывая декомпрессионные обязательсва: ");
+                        if (maxDecom[0] == 0) {
+                            System.out.println("Для заданной системы декомпрессионные обязательсва не нужны.");
+                        } else {
+                            System.out.print("Глубина спуска: " + normalDepth + " м., " + "эквивалент глубины: " + maxDecom[0] + " м.(воздух).\n" + "Экспозиция на грунте: " +
+                                    maxDecom[1] + " мин.\n" + "Общее время декомпрессии: " + maxDecom[2] + " мин.\n");
+                        }
 
 
-                    System.out.println("Полученное количество смеси: " + ValuePercentPressure[0] );
-                    System.out.println("Полученное процент содержания кислорода смеси: " + ValuePercentPressure[1] );
+                        System.out.println("Полученное количество смеси: " + ValuePercentPressure[0]);
+                        System.out.println("Полученное процент содержания кислорода смеси: " + ValuePercentPressure[1]);
+                    }
+                    else{
+                        System.out.println("Нету такого количества смеси, процента содержания кислорода и давления для рыбки");
+                    }
 //                    Раб глубина, время на грунте, возможность тяжелой работы (да, нет) (если да, просто больше ДГС, вместо 3л\мин, 4л\мин), какое парц даваление мы соглсны, 1.6 или 2.
 //                    После этого:
 //                    Считаем смесь на этой глубине, считаем потреблении кислорода в пересчете на чистый кислород, считаем сколько нужно времени на декомпрессионные обязательства (сколько смеси уйдет на дек обя + сколько работы на грунте) + 30% резерв
 //                    Получить сколько смеси и качество) процент кислорода и азота. И сравнить (50, 40, 30 и воздух)
 //                    Полузамкнутый разрешен только с 40
 //                    По сути обратная задача к прошлой задаче
+                    System.out.println("Для замкнутого цикла");
                     closedLoop.printVolumePlusPressure(time,difficulty);
                 }
                 default -> {

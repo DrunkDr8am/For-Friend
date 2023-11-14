@@ -1,5 +1,7 @@
 package FirstCucle;
 
+import java.sql.SQLOutput;
+
 import static Difficulty.DifficultyConstant.*;
 
 public class ClosedLoop {
@@ -34,6 +36,7 @@ public class ClosedLoop {
     public void printVolumePlusPressure(int time, int difficulty){
         double doubleTime=0;
         boolean flag;
+        boolean hasBalon=false;
         if (difficulty==EASY){
             int a = time/20;
             a=a*8;
@@ -55,9 +58,12 @@ public class ClosedLoop {
             for (int pressure=200; pressure<300; pressure++){
                 if (doubleTime<=pressure*balloonVolume*0.7 && !flag){
                     flag=true;
+                    hasBalon=true;
                     System.out.println("нужен балон объемом: "+balloonVolume+" и с давлением не меньше: "+pressure);
                 }
             }
         }
+        if (!hasBalon)
+            System.out.println("нету подходящего снаряжения для рыбки");
     }
 }
