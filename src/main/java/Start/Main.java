@@ -92,27 +92,22 @@ public class Main {
                     Object data[][];
                     double maxDecom[] = new double[]{0};
                     boolean flag = true;
-                    boolean difFlag = false;
-                    int difficulty = 0;
+                    int difficulty;
                     ClosedLoop closedLoop = new ClosedLoop();
                     SemiClosedLoop semiClosedLoop = new SemiClosedLoop();
-                    System.out.println("Укажите рабочую глубину");
+                    System.out.println("Укажите рабочую глубину (от 12 до 60)");
                     int depth = checkCorrectNumber(12, 60);
-                    System.out.println("Укажите время работы на грунте");
+                    System.out.println("Укажите время работы на грунте (от 30 до 360)");
                     int time = checkCorrectNumber(30, 360);
-                    System.out.println("Выбирите тип работы тяжелая(2)/нормальная(1.6)");
-                    do {
-                        difficulty = selectDifficulty2();
-                        if (depth<40&&difficulty==NORMAL)
-                            difFlag=true;
-                    }while (difFlag);
-                    double[] ValuePercentPressure = semiClosedLoop.printValuePercentPressure(depth, time);
-                    System.out.println(ValuePercentPressure[0]+" "+ValuePercentPressure[1]+" "+ValuePercentPressure[2]);
+                    System.out.println("Выбирите тип работы тяжелая/нормальная");
+                    difficulty = selectDifficulty2();
+                    double[] percentPressure = semiClosedLoop.printValuePercentPressure(depth, time);
+                    //System.out.println(percentPressure[0]+" "+percentPressure[1]+" "+percentPressure[2]);
 
-                    if (!Arrays.equals(ValuePercentPressure, new double[]{-1, -1, -1})) {
+                    if (!Arrays.equals(percentPressure, new double[]{ -1, -1})) {
                         // Загрузить файл Excel
                         data = convertToMatrix(table);
-                        int vodorod = (int) (100 - ValuePercentPressure[1]);
+                        int vodorod = (int) (100 - percentPressure[0]);
                         double normalDepth = 0;
                         for (Object[] datum : data) {
                             if (((depth - (Double) datum[0] < 3) && (depth - (Double) datum[0] >= 0))) {
@@ -138,8 +133,7 @@ public class Main {
                         }
 
 
-                        System.out.println("Полученное количество смеси: " + ValuePercentPressure[0]);
-                        System.out.println("Полученное процент содержания кислорода смеси: " + ValuePercentPressure[1]);
+                        System.out.println("Полученное процент содержания кислорода смеси: " + percentPressure[0]*100);
                     }
                     else{
                         System.out.println("Нету такого количества смеси, процента содержания кислорода и давления для рыбки");
@@ -166,7 +160,7 @@ public class Main {
         System.out.println("Выберите сложность погружения");
         System.out.println("1 - легкое");
         System.out.println("2 - среднее");
-        System.out.println("3 - сложное");
+        System.out.println("3 - тяжелая");
         return checkCorrectNumber(1, 3);
     }
     public static int selectDifficulty2() {

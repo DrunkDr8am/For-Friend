@@ -23,7 +23,7 @@ public class SemiClosedLoop {
             coefficient = 1.6;
         }
         else if (depth<=30) {
-            coefficient=2.4;
+            coefficient=2;
         } else {
             coefficient=3.2;
         }
@@ -31,7 +31,7 @@ public class SemiClosedLoop {
         if (percent<0.40){
             return new double[]{-1, -1, -1};
         }
-        System.out.printf("Процент содержания кислорода: %.2f\n" , percent*100);
+        //System.out.printf("Процент содержания кислорода: %.2f\n" , percent*100);
         double valuePressure = (timeInMinute*3)/(percent*0.7);
         double value=0;
         double pressure=0;
@@ -44,12 +44,10 @@ public class SemiClosedLoop {
             }
         }
         if (!flag){
-            System.out.println("нету подходящего оборудования для рыбок");
-            value=-1;
             pressure=-1;
             percent = -1;
         }
-        return new double[]{value, percent, pressure };
+        return new double[]{ percent, pressure };
     }
 
 }
