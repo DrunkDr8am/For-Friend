@@ -1,7 +1,7 @@
 package Start;
 
-import FirstCucle.ClosedLoop;
-import SeconCucle.SemiClosedLoop;
+import FirstCycle.ClosedLoop;
+import SeconCycle.SemiClosedLoop;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,7 +14,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import java.util.*;
-import static Difficulty.DifficultyConstant.*;
 
 
 public class Main {
@@ -24,12 +23,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
         boolean exit = true;
         do {
-            System.out.println("Выберите тип погружения");
-            System.out.println("1 - замкнутый цикл");
-            System.out.println("2 - полу-замкнутый цикл");
-            System.out.println("3 - обратная функция для полу-замкнутого цикла  ");
-            System.out.println("4 - новая тема");
-            System.out.println("5 - выход");
+            System.out.println("Выберите задачу:");
+            System.out.println("1 - Замкнутый цикл");
+            System.out.println("2 - Полу-замкнутый цикл");
+            System.out.println("3 - Обратная функция для полу-замкнутого цикла");
+            System.out.println("4 - Подбор ДГС по заданным параметрам глубины и времени работы на грунте");
+            System.out.println("5 - Выход");
             int type = checkCorrectNumber(1, 5);
             switch (type) {
                 case 1 -> {
@@ -48,7 +47,7 @@ public class Main {
                     SemiClosedLoop semiClosedLoop = new SemiClosedLoop();
                     System.out.println("Введите объем НДГС (от 5 до 10 литров)");//от 5 до 10 литров
                     int value = checkCorrectNumber(5, 10);
-                    System.out.println("Укажите содержание кислорода (от 30 до 60 процентов)");//от 40% до 60%
+                    System.out.println("Укажите содержание кислорода (от 30 до 60%)");//от 40% до 60%
                     int percent = checkCorrectNumber(30, 60);
                     System.out.println("Укажите давление ДГС (от 200 до 300 паскалей)");//200;250;300
                     int pressure = checkCorrectNumber(200, 300);
@@ -92,27 +91,22 @@ public class Main {
                     Object data[][];
                     double maxDecom[] = new double[]{0};
                     boolean flag = true;
-                    boolean difFlag = false;
-                    int difficulty = 0;
+                    int difficulty;
                     ClosedLoop closedLoop = new ClosedLoop();
                     SemiClosedLoop semiClosedLoop = new SemiClosedLoop();
-                    System.out.println("Укажите рабочую глубину");
+                    System.out.println("Укажите рабочую глубину (от 12 до 60 метров)");
                     int depth = checkCorrectNumber(12, 60);
-                    System.out.println("Укажите время работы на грунте");
+                    System.out.println("Укажите время работы на грунте (от 30 до 360 минут)");
                     int time = checkCorrectNumber(30, 360);
-                    System.out.println("Выбирите тип работы тяжелая(2)/нормальная(1.6)");
-                    do {
-                        difficulty = selectDifficulty2();
-                        if (depth<40&&difficulty==NORMAL)
-                            difFlag=true;
-                    }while (difFlag);
-                    double[] ValuePercentPressure = semiClosedLoop.printValuePercentPressure(depth, time);
-                    System.out.println(ValuePercentPressure[0]+" "+ValuePercentPressure[1]+" "+ValuePercentPressure[2]);
+                    //System.out.println("Выберите тип работы нормальная/тяжелая");
+                    difficulty = selectDifficulty2();
+                    double[] percentPressure = semiClosedLoop.printValuePercentPressure(depth, time);
+                    //System.out.println(percentPressure[0]+" "+percentPressure[1]+" "+percentPressure[2]);
 
-                    if (!Arrays.equals(ValuePercentPressure, new double[]{-1, -1, -1})) {
+                    if (!Arrays.equals(percentPressure, new double[]{ -1, -1})) {
                         // Загрузить файл Excel
                         data = convertToMatrix(table);
-                        int vodorod = (int) (100 - ValuePercentPressure[1]);
+                        int vodorod = (int) (100 - percentPressure[0]);
                         double normalDepth = 0;
                         for (Object[] datum : data) {
                             if (((depth - (Double) datum[0] < 3) && (depth - (Double) datum[0] >= 0))) {
@@ -129,6 +123,7 @@ public class Main {
                                 }
                             }
                         }
+
                         System.out.println("Учитывая декомпрессионные обязательсва: ");
                         if (maxDecom[0] == 0) {
                             System.out.println("Для заданной системы декомпрессионные обязательсва не нужны.");
@@ -138,18 +133,12 @@ public class Main {
                         }
 
 
-                        System.out.println("Полученное количество смеси: " + ValuePercentPressure[0]);
-                        System.out.println("Полученное процент содержания кислорода смеси: " + ValuePercentPressure[1]);
+                        System.out.printf("Процент содержания кислорода смеси %.2f \n", percentPressure[0]*100);
                     }
                     else{
-                        System.out.println("Нету такого количества смеси, процента содержания кислорода и давления для рыбки");
+                        System.out.println("Нет подходящего снаряжения.");
                     }
-//                    Раб глубина, время на грунте, возможность тяжелой работы (да, нет) (если да, просто больше ДГС, вместо 3л\мин, 4л\мин), какое парц даваление мы соглсны, 1.6 или 2.
-//                    После этого:
-//                    Считаем смесь на этой глубине, считаем потреблении кислорода в пересчете на чистый кислород, считаем сколько нужно времени на декомпрессионные обязательства (сколько смеси уйдет на дек обя + сколько работы на грунте) + 30% резерв
-//                    Получить сколько смеси и качество) процент кислорода и азота. И сравнить (50, 40, 30 и воздух)
-//                    Полузамкнутый разрешен только с 40
-//                    По сути обратная задача к прошлой задаче
+                    System.out.println("");
                     System.out.println("Для замкнутого цикла");
                     closedLoop.printVolumePlusPressure(time,difficulty);
                 }
@@ -163,16 +152,16 @@ public class Main {
     }
 
     public static int selectDifficulty3() {
-        System.out.println("Выберите сложность погружения");
+        System.out.println("Выберите сложность погружения:");
         System.out.println("1 - легкое");
         System.out.println("2 - среднее");
-        System.out.println("3 - сложное");
+        System.out.println("3 - тяжелое");
         return checkCorrectNumber(1, 3);
     }
     public static int selectDifficulty2() {
-        System.out.println("Выберите сложность погружения");
-        System.out.println("1 - нормальная");
-        System.out.println("2 - тяжелая");
+        System.out.println("Выберите сложность погружения:");
+        System.out.println("1 - нормальное");
+        System.out.println("2 - тяжелое");
         return checkCorrectNumber(1, 2);
     }
 

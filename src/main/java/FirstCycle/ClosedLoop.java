@@ -1,6 +1,4 @@
-package FirstCucle;
-
-import java.sql.SQLOutput;
+package FirstCycle;
 
 import static Difficulty.DifficultyConstant.*;
 
@@ -12,7 +10,7 @@ public class ClosedLoop {
             int a = (int) timeInMinute/30;
             a=a*8;
             timeInMinute-=a;
-            System.out.printf("Расчетное время в минутах: %.2f\n", timeInMinute);
+            System.out.printf("Расчетное время экспозиции на грунте в минутах: %.2f\n", timeInMinute);
             System.out.printf("В часах: %.2f ",timeInMinute/60);
         }
         if (difficulty==NORMAL){
@@ -20,7 +18,7 @@ public class ClosedLoop {
             int a = (int) timeInMinute/20;
             a=a*8;
             timeInMinute-=a;
-            System.out.printf("Расчетное время в минутах: %.2f\n", timeInMinute);
+            System.out.printf("Расчетное время экспозиции на грунте в минутах: %.2f\n", timeInMinute);
             System.out.printf("В часах: %.2f ",timeInMinute/60);
         }
         if (difficulty==HARD){
@@ -28,7 +26,7 @@ public class ClosedLoop {
             int a = (int) timeInMinute/10;
             a=a*8;
             timeInMinute-=a;
-            System.out.printf("Расчетное время в минутах: %.2f\n", timeInMinute);
+            System.out.printf("Расчетное время экспозиции на грунте в минутах: %.2f\n", timeInMinute);
             System.out.printf("В часах: %.2f ",timeInMinute/60);
         }
     }
@@ -59,11 +57,11 @@ public class ClosedLoop {
                 if (doubleTime<=pressure*balloonVolume*0.7 && !flag){
                     flag=true;
                     hasBalon=true;
-                    System.out.println("нужен балон объемом: "+balloonVolume+" и с давлением не меньше: "+pressure);
+                    System.out.println("Нужен баллон объемом "+balloonVolume+" литров и с давлением не меньше "+pressure + " паскаль.");
                 }
             }
         }
         if (!hasBalon)
-            System.out.println("нету подходящего снаряжения для рыбки");
+            System.out.println("Нет подходящего снаряжения.");
     }
 }
