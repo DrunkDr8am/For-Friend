@@ -133,7 +133,7 @@ public class Main {
                         }
 
 
-                        System.out.printf("Процент содержания кислорода смеси %.2f \n", percentPressure[0]*100);
+                        System.out.printf("Процент содержания кислорода смеси %.2f \n", percentPressure[0] * 62,5);
                     }
                     else{
                         System.out.println("Нет подходящего снаряжения.");

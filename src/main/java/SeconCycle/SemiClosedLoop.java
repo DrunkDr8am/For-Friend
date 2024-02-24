@@ -9,7 +9,7 @@ public class SemiClosedLoop {
         double depthSport = 1.6 / percent * 10 - 10;
         double depthNATO = 2.4 / percent * 10 - 10;
         double depthRF = 3.2 / percent * 10 - 10;
-        System.out.printf("Глубина погружения для спортсменов: %.2fу\n", depthSport);
+        System.out.printf("Глубина погружения для спортсменов: %.2f\n", depthSport);
         System.out.printf("Глубина погружения для военных НАТО: %.2f\n" , depthNATO);
         System.out.printf("Глубина погружения для военных РФ: %.2f\n" , depthRF);
         return new double[]{timeInMinute,depthSport};
@@ -21,8 +21,7 @@ public class SemiClosedLoop {
         double coefficient;
         if (depth<17) {
             coefficient = 1.6;
-        }
-        else if (depth<=30) {
+        }else if (depth<=30) {
             coefficient=2;
         } else {
             coefficient=3.2;
