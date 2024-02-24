@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96dde427-c43d-4f0d-85b2-974ff020ed13" name="Changes" comment="NIR_v.2">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2023_15_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_2023_15_35__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FirstCucle/ClosedLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FirstCycle/ClosedLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SeconCucle/SemiClosedLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeconCycle/SemiClosedLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Start/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Start/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Table/For_friend.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Table/For_friend.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
