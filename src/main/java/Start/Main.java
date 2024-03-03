@@ -37,8 +37,10 @@ public class Main {
                     int balloonVolume = checkCorrectNumber(1, 2);
                     System.out.println("Укажите давление ДГС (от 200 до 300 паскалей)");//200;250;300
                     int initialPressure = checkCorrectNumber(200, 300);
+                    System.out.println("Укажите запас");//200;250;300
+                    double zapas = checkCorrectZapas();
                     ClosedLoop closedLoop = new ClosedLoop();
-                    closedLoop.printTime(balloonVolume, initialPressure, difficulty);
+                    closedLoop.printTime(balloonVolume, initialPressure, difficulty, zapas);
                 }
                 case 2 -> {
                     Object data[][];
@@ -51,7 +53,9 @@ public class Main {
                     int percent = checkCorrectNumber(30, 60);
                     System.out.println("Укажите давление ДГС (от 200 до 300 паскалей)");//200;250;300
                     int pressure = checkCorrectNumber(200, 300);
-                    double[] timePlusDepth = semiClosedLoop.printDepthAndTime(value, percent, pressure);
+                    System.out.println("Укажите запас");//200;250;300
+                    double zapas = checkCorrectZapas();
+                    double[] timePlusDepth = semiClosedLoop.printDepthAndTime(value, percent, pressure, zapas);
                     // Загрузить файл Excel
                     data = convertToMatrix(table);
                     int vodorod = 100 - percent;
@@ -85,7 +89,9 @@ public class Main {
                     int time = checkCorrectNumber(30, 420);
                     System.out.println("Укажите глубину погружения в метрах (от 2 до 50)");
                     int depth = checkCorrectNumber(2, 50);
-                    semiClosedLoop.printValuePercentPressure(depth, time);
+                    System.out.println("Укажите запас");//200;250;300
+                    double zapas = checkCorrectZapas();
+                    semiClosedLoop.printValuePercentPressure(depth, time, zapas);
                 }
                 case 4 -> {
                     Object data[][];
@@ -98,12 +104,16 @@ public class Main {
                     int depth = checkCorrectNumber(12, 60);
                     System.out.println("Укажите время работы на грунте (от 30 до 360 минут)");
                     int time = checkCorrectNumber(30, 360);
+                    System.out.println("Укажите запас");//200;250;300
+                    double zapas = checkCorrectZapas();
                     //System.out.println("Выберите тип работы нормальная/тяжелая");
                     difficulty = selectDifficulty2();
-                    double[] percentPressure = semiClosedLoop.printValuePercentPressure(depth, time);
+                    double weatherConditions = checkWeatherConditions();
+                    System.out.println("погодные условаия добавили процент сложности равный  " + weatherConditions * 100);
+                    double[] percentPressure = semiClosedLoop.printValuePercentPressure(depth, time, zapas);
                     //System.out.println(percentPressure[0]+" "+percentPressure[1]+" "+percentPressure[2]);
 
-                    if (!Arrays.equals(percentPressure, new double[]{ -1, -1})) {
+                    if (!Arrays.equals(percentPressure, new double[]{-1, -1})) {
                         // Загрузить файл Excel
                         data = convertToMatrix(table);
                         int vodorod = (int) (100 - percentPressure[0]);
@@ -133,14 +143,13 @@ public class Main {
                         }
 
 
-                        System.out.printf("Процент содержания кислорода смеси %.2f \n", percentPressure[0]*100);
-                    }
-                    else{
+                        System.out.printf("Процент содержания кислорода смеси %.2f \n", percentPressure[0] * 62, 5);
+                    } else {
                         System.out.println("Нет подходящего снаряжения.");
                     }
                     System.out.println("");
                     System.out.println("Для замкнутого цикла");
-                    closedLoop.printVolumePlusPressure(time,difficulty);
+                    closedLoop.printVolumePlusPressure(time, difficulty, zapas);
                 }
                 default -> {
                     System.out.println("Плыви Рыбка");
@@ -151,6 +160,55 @@ public class Main {
         } while (exit);
     }
 
+    private static double checkWeatherConditions() {
+        System.out.println("вода холодная?");
+        System.out.println("1 - да");
+        System.out.println("2 - нет");
+        boolean cold = true;
+        int type = checkCorrectNumber(1, 2);
+        switch (type) {
+            case 1 -> {
+                cold = true;
+            }
+            case 2 -> {
+                cold = false;
+            }
+        }
+        System.out.println("в воде есть химические загрязнения?");
+        System.out.println("1 - да");
+        System.out.println("2 - нет");
+        boolean radiation = true;
+        type = checkCorrectNumber(1, 2);
+        switch (type) {
+            case 1 -> {
+                radiation = true;
+            }
+            case 2 -> {
+                radiation = false;
+            }
+        }
+        System.out.println("есть течение?");
+        System.out.println("1 - да");
+        System.out.println("2 - нет");
+        boolean course = true;
+        type = checkCorrectNumber(1, 2);
+        switch (type) {
+            case 1 -> {
+                course = true;
+            }
+            case 2 -> {
+                course = false;
+            }
+        }
+        if (course) {
+            return 0.15;
+        } else if (radiation || cold) {
+            return 0.1;
+        } else {
+            return 0;
+        }
+    }
+
     public static int selectDifficulty3() {
         System.out.println("Выберите сложность погружения:");
         System.out.println("1 - легкое");
@@ -158,6 +216,7 @@ public class Main {
         System.out.println("3 - тяжелое");
         return checkCorrectNumber(1, 3);
     }
+
     public static int selectDifficulty2() {
         System.out.println("Выберите сложность погружения:");
         System.out.println("1 - нормальное");
@@ -238,4 +297,21 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
+
+    private static double checkCorrectZapas() {
+        System.out.println("выберите ваш вариант:");
+        System.out.println("1 - 0.7");
+        System.out.println("2 - 0.8");
+        int type = checkCorrectNumber(1, 2);
+        switch (type) {
+            case 1 -> {
+                return 0.7;
+            }
+            case 2 -> {
+                return 0.8;
+            }
+        }
+        return 0.7;
+    }
 }
+
