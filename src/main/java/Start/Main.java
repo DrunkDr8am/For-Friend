@@ -6,6 +6,7 @@ import SeconCycle.SemiClosedLoop;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -47,8 +48,10 @@ public class Main {
                     double maxDecom[] = new double[]{0};
                     boolean flag = true;
                     SemiClosedLoop semiClosedLoop = new SemiClosedLoop();
-                    System.out.println("Введите объем НДГС (от 5 до 10 литров)");//от 5 до 10 литров
-                    int value = checkCorrectNumber(5, 10);
+                    System.out.println("Введите объем ОДНОГО БАЛОНА (их будет два)  НДГС (7,10,12,18)");//от 5 до 10 литров
+                    int[] array = {7, 10, 12, 18};
+                    int value = checkCorrectNumberInArr(array);
+                    value = value*2;
                     System.out.println("Укажите содержание кислорода (от 30 до 60%)");//от 40% до 60%
                     int percent = checkCorrectNumber(30, 60);
                     System.out.println("Укажите давление ДГС (от 200 до 300 паскалей)");//200;250;300
@@ -91,7 +94,9 @@ public class Main {
                     int depth = checkCorrectNumber(2, 50);
                     System.out.println("Укажите запас");//200;250;300
                     double zapas = checkCorrectZapas();
-                    semiClosedLoop.printValuePercentPressure(depth, time, zapas);
+                    double[] oborydovanie = semiClosedLoop.printValuePercentPressure(depth, time, zapas);
+                    if (oborydovanie[0] == -1)
+                        System.out.println("нет подходящего оборудования");
                 }
                 case 4 -> {
                     Object data[][];
@@ -161,7 +166,7 @@ public class Main {
     }
 
     private static double checkWeatherConditions() {
-        System.out.println("вода холодная?");
+        System.out.println("Вода холодная?");
         System.out.println("1 - да");
         System.out.println("2 - нет");
         boolean cold = true;
@@ -174,7 +179,20 @@ public class Main {
                 cold = false;
             }
         }
-        System.out.println("в воде есть химические загрязнения?");
+        System.out.println("В воде есть опасные предметы?");
+        System.out.println("1 - да");
+        System.out.println("2 - нет");
+        boolean danger = true;
+        type = checkCorrectNumber(1, 2);
+        switch (type) {
+            case 1 -> {
+                danger = true;
+            }
+            case 2 -> {
+                danger = false;
+            }
+        }
+        System.out.println("Есть химические загрязнения?");
         System.out.println("1 - да");
         System.out.println("2 - нет");
         boolean radiation = true;
@@ -187,7 +205,7 @@ public class Main {
                 radiation = false;
             }
         }
-        System.out.println("есть течение?");
+        System.out.println("Есть течение?");
         System.out.println("1 - да");
         System.out.println("2 - нет");
         boolean course = true;
@@ -200,7 +218,7 @@ public class Main {
                 course = false;
             }
         }
-        if (course) {
+        if (course||danger) {
             return 0.15;
         } else if (radiation || cold) {
             return 0.1;
@@ -235,6 +253,22 @@ public class Main {
             }
             System.out.println("Введено неправильное значение!");
             System.out.println("Введите число в диапазоне от " + min + " до " + max);
+        }
+    }
+
+    public static int checkCorrectNumberInArr(int[] arr) {
+        List<Integer> intList = new ArrayList<>();
+        for (int num : arr) {
+            intList.add(num);
+        }
+        while (true) {
+            String volume = in.nextLine();
+            if (checkInt(volume)) {
+                int number = Integer.parseInt(volume);
+                if (intList.contains(number) )
+                    return number;
+            }
+            System.out.println("Введено неправильное значение!");
         }
     }
 
