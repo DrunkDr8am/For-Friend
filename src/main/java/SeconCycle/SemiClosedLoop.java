@@ -16,7 +16,8 @@ public class SemiClosedLoop {
     }
 
 
-    public double[] printValuePercentPressure(int depth, int timeInMinute, double zapas) {
+    public double[] printValuePercentPressure(int depth, int timeInMinute, double zapas, double weatherConditions) {
+        int[] array = {7, 10, 12, 14, 18, 20, 24};
         boolean flag = false;
         double coefficient;
         if (depth < 17) {
@@ -31,15 +32,22 @@ public class SemiClosedLoop {
             return new double[]{-1, -1, -1};
         }
         //System.out.printf("Процент содержания кислорода: %.2f\n" , percent*100);
-        double valuePressure = (timeInMinute * 3) / (percent * zapas);
+        double valuePressure = 0;
+        if (weatherConditions != 0) {
+            valuePressure = (timeInMinute * 3) / (percent * zapas);
+            valuePressure = valuePressure - valuePressure * (1-zapas);
+            valuePressure = valuePressure + valuePressure * weatherConditions;
+            valuePressure = valuePressure + valuePressure * (1-zapas);
+        }else
+            valuePressure = (timeInMinute * 3) / (percent * zapas);
         double value = 0;
         double pressure = 0;
         System.out.println("Для полу-замкнутого цикла");
-        for (int i = 5; i <= 10; i++) {
+        for (int i : array) {
             value = i;
             pressure = valuePressure / value;
             if (pressure > 170 && pressure < 330) {
-                System.out.printf("Для баллона в %.2f литров давление составит в %.2f паскаль\n", value, pressure);
+                System.out.printf("Для баллона в %.2f литров давление составит в %.2f паскаль. Объем смеси равен %.2f\n", value, pressure, value * pressure);
                 flag = true;
             }
         }

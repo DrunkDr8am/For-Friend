@@ -48,10 +48,9 @@ public class Main {
                     double maxDecom[] = new double[]{0};
                     boolean flag = true;
                     SemiClosedLoop semiClosedLoop = new SemiClosedLoop();
-                    System.out.println("Введите объем ОДНОГО БАЛОНА (их будет два)  НДГС (7,10,12,18)");//от 5 до 10 литров
-                    int[] array = {7, 10, 12, 18};
+                    System.out.println("Введите объем ОДНОГО БАЛОНА (их будет два)  НДГС (7,10,12,14,18,20,24)");//от 5 до 10 литров
+                    int[] array = {7, 10, 12, 18, 14, 20, 24};
                     int value = checkCorrectNumberInArr(array);
-                    value = value*2;
                     System.out.println("Укажите содержание кислорода (от 30 до 60%)");//от 40% до 60%
                     int percent = checkCorrectNumber(30, 60);
                     System.out.println("Укажите давление ДГС (от 200 до 300 паскалей)");//200;250;300
@@ -94,7 +93,7 @@ public class Main {
                     int depth = checkCorrectNumber(2, 50);
                     System.out.println("Укажите запас");//200;250;300
                     double zapas = checkCorrectZapas();
-                    double[] oborydovanie = semiClosedLoop.printValuePercentPressure(depth, time, zapas);
+                    double[] oborydovanie = semiClosedLoop.printValuePercentPressure(depth, time, zapas, 0);
                     if (oborydovanie[0] == -1)
                         System.out.println("нет подходящего оборудования");
                 }
@@ -115,7 +114,7 @@ public class Main {
                     difficulty = selectDifficulty2();
                     double weatherConditions = checkWeatherConditions();
                     System.out.println("погодные условаия добавили процент сложности равный  " + weatherConditions * 100);
-                    double[] percentPressure = semiClosedLoop.printValuePercentPressure(depth, time, zapas);
+                    double[] percentPressure = semiClosedLoop.printValuePercentPressure(depth, time, zapas, weatherConditions);
                     //System.out.println(percentPressure[0]+" "+percentPressure[1]+" "+percentPressure[2]);
 
                     if (!Arrays.equals(percentPressure, new double[]{-1, -1})) {
@@ -218,7 +217,7 @@ public class Main {
                 course = false;
             }
         }
-        if (course||danger) {
+        if (course || danger) {
             return 0.15;
         } else if (radiation || cold) {
             return 0.1;
@@ -265,7 +264,7 @@ public class Main {
             String volume = in.nextLine();
             if (checkInt(volume)) {
                 int number = Integer.parseInt(volume);
-                if (intList.contains(number) )
+                if (intList.contains(number))
                     return number;
             }
             System.out.println("Введено неправильное значение!");
@@ -334,8 +333,8 @@ public class Main {
 
     private static double checkCorrectZapas() {
         System.out.println("выберите ваш вариант:");
-        System.out.println("1 - 0.7");
-        System.out.println("2 - 0.8");
+        System.out.println("1 - 30%");
+        System.out.println("2 - 20%");
         int type = checkCorrectNumber(1, 2);
         switch (type) {
             case 1 -> {
