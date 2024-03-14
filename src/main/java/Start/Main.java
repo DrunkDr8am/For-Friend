@@ -1,7 +1,7 @@
 package Start;
 
 import FirstCycle.ClosedLoop;
-import SeconCycle.SemiClosedLoop;
+import SecondCycle.SemiClosedLoop;
 
 import java.io.File;
 import java.io.FileInputStream;

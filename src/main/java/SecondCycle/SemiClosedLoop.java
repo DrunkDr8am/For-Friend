@@ -1,4 +1,4 @@
-package SeconCycle;
+package SecondCycle;
 
 public class SemiClosedLoop {
     public double[] printDepthAndTime(int value, int fullPercent, int pressure, double zapas) {
