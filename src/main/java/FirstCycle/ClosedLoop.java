@@ -33,6 +33,7 @@ public class ClosedLoop {
 
     public void printVolumePlusPressure(int time, int difficulty, double zapas) {
         double doubleTime = 0;
+        int[] array = {7, 10, 12, 14, 18, 20, 24};
         boolean flag;
         boolean hasBalon = false;
         if (difficulty == EASY) {
@@ -51,7 +52,7 @@ public class ClosedLoop {
         //blon(1/2)
         //pressure(200-300)
 
-        for (int balloonVolume = 0; balloonVolume < 2; balloonVolume++) {
+        for (int balloonVolume : array) {
             flag = false;
             for (int pressure = 200; pressure < 300; pressure++) {
                 if (doubleTime <= pressure * balloonVolume * zapas && !flag) {
