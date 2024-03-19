@@ -47,7 +47,7 @@ public class SemiClosedLoop {
             value = i;
             pressure = valuePressure / value;
             if (pressure > 170 && pressure < 330) {
-                System.out.printf("Для баллона в %.2f литров давление составит в %.2f паскаль. Объем смеси равен %.2f\n", value, pressure, value * pressure);
+                System.out.printf("Для баллона в %.2f литров давление составит в %.2f паскаль. Объем смеси равен %.2f л.\n", value, pressure, value * pressure);
                 flag = true;
             }
         }

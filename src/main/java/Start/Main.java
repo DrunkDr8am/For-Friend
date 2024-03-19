@@ -108,12 +108,12 @@ public class Main {
                     int depth = checkCorrectNumber(12, 60);
                     System.out.println("Укажите время работы на грунте (от 30 до 360 минут)");
                     int time = checkCorrectNumber(30, 360);
-                    System.out.println("Укажите запас");//200;250;300
+                    System.out.print("Укажите резерв ДГС");//200;250;300
                     double zapas = checkCorrectZapas();
                     //System.out.println("Выберите тип работы нормальная/тяжелая");
                     difficulty = selectDifficulty2();
                     double weatherConditions = checkWeatherConditions();
-                    System.out.println("погодные условаия добавили процент сложности равный  " + weatherConditions * 100);
+                    System.out.println("Погодные условия добавили расход смеси равной: " + weatherConditions * 100 + "%");
                     double[] percentPressure = semiClosedLoop.printValuePercentPressure(depth, time, zapas, weatherConditions);
                     //System.out.println(percentPressure[0]+" "+percentPressure[1]+" "+percentPressure[2]);
 
@@ -147,7 +147,7 @@ public class Main {
                         }
 
 
-                        System.out.printf("Процент содержания кислорода смеси %.2f \n", percentPressure[0] * 62, 5);
+                        System.out.printf("Процент содержания кислорода смеси %.2f \n ", percentPressure[0] * 62, 5);
                     } else {
                         System.out.println("Нет подходящего снаряжения.");
                     }
@@ -332,7 +332,7 @@ public class Main {
     }
 
     private static double checkCorrectZapas() {
-        System.out.println("выберите ваш вариант:");
+        System.out.println(", который вам необходим:");
         System.out.println("1 - 30%");
         System.out.println("2 - 20%");
         int type = checkCorrectNumber(1, 2);
