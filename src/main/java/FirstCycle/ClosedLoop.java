@@ -33,7 +33,7 @@ public class ClosedLoop {
 
     public void printVolumePlusPressure(int time, int difficulty, double zapas) {
         double doubleTime = 0;
-        int[] array = {7, 10, 12, 14, 18, 20, 24};
+        int[] array = {1,2};
         boolean flag;
         boolean hasBalon = false;
         if (difficulty == EASY) {

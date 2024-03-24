@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96dde427-c43d-4f0d-85b2-974ff020ed13" name="Changes" comment="обновил под новую НИР">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FirstCycle/ClosedLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FirstCycle/ClosedLoop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SecondCycle/SemiClosedLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SecondCycle/SemiClosedLoop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Start/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Start/Main.java" afterDir="false" />
     </list>
@@ -30,6 +30,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">

@@ -21,7 +21,7 @@ public class Main {
     static Scanner in = new Scanner(System.in);
     static String table = "src/main/java/Table/For_friend.xlsx";
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         boolean exit = true;
         do {
             System.out.println("Выберите задачу:");
@@ -44,8 +44,8 @@ public class Main {
                     closedLoop.printTime(balloonVolume, initialPressure, difficulty, zapas);
                 }
                 case 2 -> {
-                    Object data[][];
-                    double maxDecom[] = new double[]{0};
+                    Object[][] data;
+                    double[] maxDecom = new double[]{0};
                     boolean flag = true;
                     SemiClosedLoop semiClosedLoop = new SemiClosedLoop();
                     System.out.println("Введите объем ОДНОГО БАЛОНА (их будет два)  НДГС (7,10,12,14,18,20,24)");//от 5 до 10 литров
@@ -98,8 +98,8 @@ public class Main {
                         System.out.println("нет подходящего оборудования");
                 }
                 case 4 -> {
-                    Object data[][];
-                    double maxDecom[] = new double[]{0};
+                    Object[][] data;
+                    double[] maxDecom = new double[]{0};
                     boolean flag = true;
                     int difficulty;
                     ClosedLoop closedLoop = new ClosedLoop();
@@ -113,7 +113,7 @@ public class Main {
                     //System.out.println("Выберите тип работы нормальная/тяжелая");
                     difficulty = selectDifficulty2();
                     double weatherConditions = checkWeatherConditions();
-                    System.out.println("Погодные условия добавили расход смеси равной: " + weatherConditions * 100 + "%");
+                    System.out.println("Маркеры опасности увеличили расход смеси на " + weatherConditions * 100 + "%");
                     double[] percentPressure = semiClosedLoop.printValuePercentPressure(depth, time, zapas, weatherConditions);
                     //System.out.println(percentPressure[0]+" "+percentPressure[1]+" "+percentPressure[2]);
 

@@ -32,7 +32,7 @@ public class SemiClosedLoop {
             return new double[]{-1, -1, -1};
         }
         //System.out.printf("Процент содержания кислорода: %.2f\n" , percent*100);
-        double valuePressure = 0;
+        double valuePressure;
         if (weatherConditions != 0) {
             valuePressure = (timeInMinute * 3) / (percent * zapas);
             valuePressure = valuePressure - valuePressure * (1-zapas);
@@ -40,7 +40,7 @@ public class SemiClosedLoop {
             valuePressure = valuePressure + valuePressure * (1-zapas);
         }else
             valuePressure = (timeInMinute * 3) / (percent * zapas);
-        double value = 0;
+        double value;
         double pressure = 0;
         System.out.println("Для полу-замкнутого цикла");
         for (int i : array) {
